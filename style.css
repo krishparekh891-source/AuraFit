@@ -1,0 +1,17 @@
+:root { --bg:#0b1220; --card:#0f1724; --muted:#9ca3af; }
+body { font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial; background: linear-gradient(180deg,#05060a 0%, #071027 100%); color:#e6eef0; }
+.screen { transition: opacity .28s ease, transform .28s ease; }
+.screen.hidden { opacity:0; transform: translateY(6px); pointer-events:none; position:absolute; }
+.timeline { border-left:2px solid rgba(255,255,255,0.04); }
+.pill { background: rgba(255,255,255,0.03); padding:.5rem .75rem; border-radius:999px; }
+.muted { color:var(--muted); }
+/* Custom Modal and loading styles */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); display: flex; justify-content: center; align-items: center; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+.modal-content { background: var(--card); padding: 1.5rem; border-radius: 1rem; max-width: 90%; width: 400px; transform: translateY(-20px); transition: transform 0.3s ease; }
+.modal-overlay.active .modal-content { transform: translateY(0); }
+.loading-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.loading-overlay.active { opacity: 1; pointer-events: auto; }
+.spinner { border: 4px solid rgba(255, 255, 255, 0.1); border-left-color: #38bdf8; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@media print { body { background: white; color: black; } .no-print { display:none } }
